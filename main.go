@@ -5,26 +5,10 @@ import (
 	"sort"
 )
 
-/*
-	Given an unsorted integer array that can contain duplicates, return all number ranges it contains. Input array can contain any integer and have any length. Result array can be sorted in any order. Result array should not contain duplicates.
-
-	A number range is represented as string "n..m" if n<m and input array contains all integers from n to m inclusive (but does not contain n-1 and m+1) or "n" if input array contains n but not n-1 or n+1.
-
-	Describe time and space complexity for the code. Write unit tests.
-
-	Method signature:
-	func Solution(input []int) []string
-
-	Examples:
-
-	For nums = [1, -1, 2, 7, 9, 2, 0, 6], the output can be
-	["9", "-1..2", "6..7"].
-
-	Input [2, 5, 1]: output can be ["1..2", "5"] or ["5", "1..2"]
-*/
-
 func main() {
-
+	input := []int{5,2,5,6,3,2}
+	res := Solution(input)
+	fmt.Println(res)
 }
 
 /*

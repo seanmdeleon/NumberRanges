@@ -48,3 +48,45 @@ func TestBothSingleAndMultipleNumberRanges(t *testing.T) {
 
 	assert.Equal(t, []string{"-20000", "-3...-1", "3...6", "45", "67", "89", "198...200", "2001...2002", "256789"}, resultRanges)
 }
+
+func TestBigNumberRange(t *testing.T) {
+
+	input := []int{}
+	for i := -20000; i <= 555000; i++ {
+		input = append(input, i)
+	}
+
+	resultRanges := Solution(input)
+
+	assert.Equal(t, []string{"-20000...555000"}, resultRanges)
+}
+
+func TestBigNumberRangeEndingWithSingleNumberRange(t *testing.T) {
+
+	input := []int{}
+	for i := -20000; i <= 555000; i++ {
+		input = append(input, i)
+	}
+
+	input = append(input, 600000)
+	resultRanges := Solution(input)
+
+	assert.Equal(t, []string{"-20000...555000", "600000"}, resultRanges)
+}
+
+func TestSingleNumberRangesEndingInBigNumberRange(t *testing.T) {
+
+	input := []int{}
+
+	for i := -30000; i < -29990; i=i+2 {
+		input = append(input, i)
+	}
+
+	for i := -20000; i <= 555000; i++ {
+		input = append(input, i)
+	}
+
+	resultRanges := Solution(input)
+
+	assert.Equal(t, []string{"-30000", "-29998", "-29996", "-29994", "-29992", "-20000...555000"}, resultRanges)
+}
